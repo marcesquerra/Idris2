@@ -55,6 +55,8 @@ data CLOpt
   Quiet |
    ||| Add a package as a dependency
   PkgPath String |
+   ||| Set where to look for source files
+  Sourcedir String |
    ||| Build or install a given package, depending on PkgCommand
   Package PkgCommand String |
    ||| Show locations of data/library directories
@@ -109,6 +111,8 @@ options = [MkOpt ["--check", "-c"] [] [CheckOnly]
               (Just "Set code generator (default chez)"),
            MkOpt ["--package", "-p"] ["package"] (\f => [PkgPath f])
               (Just "Add a package as a dependency"),
+           MkOpt ["--sourcedir"] ["path"] (\f => [Sourcedir f])
+              (Just "Set where to look for source files"),
 
            MkOpt ["--ide-mode"] [] [IdeMode]
               (Just "Run the REPL with machine-readable syntax"),
